@@ -11,8 +11,6 @@ def start_message(message):
 
 @bot.message_handler(content_types=['text'])
 def lock_item(message):
-    item = message
-    answer = exped.item_filter(item, df)
     bot.send_message(message.chat.id, 'df.info()')
 
 bot.polling(none_stop=True, interval=0)
