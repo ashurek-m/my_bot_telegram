@@ -1,6 +1,7 @@
 import telebot
 import constant
 import exped
+import pandas as pd
 
 bot = telebot.TeleBot(constant.token)
 df = exped.df_exped
@@ -11,6 +12,7 @@ def start_message(message):
 @bot.message_handler(content_types=['text'])
 def lock_item(message):
     item = message
-    bot.send_message(message.chat.id, exped.item_filter(item, df))
+    answer = exped.item_filter(item, df)
+    bot.send_message(message.chat.id, 'df.info()')
 
 bot.polling(none_stop=True, interval=0)
