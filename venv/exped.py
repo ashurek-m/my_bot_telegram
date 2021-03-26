@@ -13,6 +13,11 @@ def item_filter(item, data):
     tech_proc = ', '.join(list_q)
     return tech_proc
 
+
+def filter_by_orders():
+
+    return
+
 def text_1(t):
     return t
 
@@ -21,4 +26,3 @@ path = 'W:\\Theoretical Planning\\03 - План отгрузки (Planification)
 df_exped = pd.read_excel(path, sheet_name='Текущий', engine='pyxlsb', header=4)
 df_exped.dropna(subset=['Наименование детали'], inplace=True)
 df_exped = df_exped.reset_index(drop=True)
-print(item_filter(506559, df_exped))
