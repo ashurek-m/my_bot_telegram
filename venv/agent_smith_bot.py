@@ -16,8 +16,9 @@ def start_message(message):
 @bot.message_handler(content_types=['text'])
 def any_msg(message):
     keyboard = types.InlineKeyboardMarkup()
-    callback_button = types.InlineKeyboardButton(text="Нажми меня", callback_data="test")
-    keyboard.add(callback_button)
+    callback_button_1 = types.InlineKeyboardButton(text="Нажми меня", callback_data="test")
+    callback_button_2 = types.InlineKeyboardButton(text="no", callback_data="test")
+    keyboard.add(callback_button_1, callback_button_2)
     bot.send_message(message.chat.id, "Я – сообщение из обычного режима", reply_markup=keyboard)
 def text_s(message):
     bot.send_message(message.chat.id, 'я прототип')
@@ -38,4 +39,4 @@ def callback_inline(call):
         if call.data == "test":
             bot.edit_message_text(inline_message_id=call.inline_message_id, text="Бдыщь")
 
-bot.polling(none_stop=True, interval=0)
+bot.polling(none_stop=True, interval=5)
